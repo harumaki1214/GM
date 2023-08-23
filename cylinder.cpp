@@ -3,11 +3,23 @@
 #include "renderer.h"
 #include "cylinder.h"
 
+Model* Cylinder::m_CylinderModel{};
 
-void Cylinder::Init()
+void Cylinder::Load()
 {
 	m_CylinderModel = new Model();
 	m_CylinderModel->Load("asset\\model\\cylinder\\cylinder.obj");
+}
+
+void Cylinder::Unlooad()
+{
+	m_CylinderModel->Unload();
+	delete m_CylinderModel;
+}
+
+void Cylinder::Init()
+{
+	
 
 	/*m_Position = D3DXVECTOR3(0.0f, 1.0f, 2.0f);
 	m_Rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
@@ -19,10 +31,7 @@ void Cylinder::Init()
 
 void Cylinder::Uninit()
 {
-
-	m_CylinderModel->Unload();
-	delete m_CylinderModel;
-
+	
 
 	//ここにシェーダーオブジェクトの解放を追加
 	if (m_VertexLayout != NULL)
