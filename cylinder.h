@@ -13,7 +13,7 @@ private:
 
 public:
 	static void Load();
-	static void Unlooad();
+	static void Unload();
 	void Init();
 	void Uninit();
 	void Update();

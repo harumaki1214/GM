@@ -11,7 +11,7 @@ void Cylinder::Load()
 	m_CylinderModel->Load("asset\\model\\cylinder\\cylinder.obj");
 }
 
-void Cylinder::Unlooad()
+void Cylinder::Unload()
 {
 	m_CylinderModel->Unload();
 	delete m_CylinderModel;
