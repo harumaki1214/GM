@@ -20,6 +20,7 @@ void Game::Init()
 {
 	Bullet::Load();
 	Cylinder::Load();
+	Enemy::Load();
 
 	AddGameObject<Camera>(0);
 	AddGameObject<Sky>(1);
@@ -51,7 +52,9 @@ void Game::Init()
 void Game::Uninit()
 {
 	Scene::Uninit();
-	Cylinder::Load();
+
+	Enemy::Unload();
+	Cylinder::Unload();
 	Bullet::Unload();
 }
 

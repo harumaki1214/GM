@@ -3,12 +3,23 @@
 #include "renderer.h"
 #include "enemy.h"
 
+Model* Enemy::m_EnemyModel{};
 
-void Enemy::Init()
+void Enemy::Load()
 {
 	m_EnemyModel = new Model();
 	m_EnemyModel->Load("asset\\model\\torus.obj");
+}
 
+void Enemy::Unload()
+{
+	m_EnemyModel->Unload();
+	delete m_EnemyModel;
+}
+
+
+void Enemy::Init()
+{
 	/*m_Position = D3DXVECTOR3(0.0f, 1.0f, 2.0f);
 	m_Rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	m_Scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);*/
@@ -17,12 +28,9 @@ void Enemy::Init()
 	Renderer::CreatePixelShader(&m_PixelShader, "shader\\vertexLightingPS.cso");
 }
 
+
 void Enemy::Uninit()
 {
-
-	m_EnemyModel->Unload();
-	delete m_EnemyModel;
-
 	//ここにシェーダーオブジェクトの解放を追加
 	if (m_VertexLayout != NULL)
 	{
