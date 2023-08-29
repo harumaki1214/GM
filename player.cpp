@@ -86,10 +86,8 @@ void Player::Update()
 			m_Rotation.x -= 0.1f;
 		if (Input::GetKeyPress('F'))
 			m_Rotation.x += 0.1f;*/
-
-			//’e”­ŽË
 	
-
+	//’e”­ŽË
 	if (Input::GetKeyTrigger(VK_SPACE))
 	{
 		Bullet* bullet = scene->AddGameObject<Bullet>(1);

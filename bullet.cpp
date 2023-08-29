@@ -39,8 +39,6 @@ void Bullet::Init()
 
 void Bullet::Uninit()
 {
-	
-
 	//ここにシェーダーオブジェクトの解放を追加
 	if (m_VertexLayout != NULL)
 	{
