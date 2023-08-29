@@ -16,6 +16,9 @@ private:
 	ID3D11InputLayout* m_VertexLayout{};
 
 	D3DXVECTOR3 m_Velocity{};
+	
+	int m_MaxJumpCount;
+	int m_JumpCount;
 
 public:
 	void Init();

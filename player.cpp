@@ -21,6 +21,8 @@ void Player::Init()
 	m_Position = D3DXVECTOR3(0.0f, 1.0f, -5.0f);
 	m_Rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	m_Scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
+	m_MaxJumpCount = 1;
+	m_JumpCount = 0;
 
 	Renderer::CreateVertexShader(&m_VertexShader, &m_VertexLayout, "shader\\vertexLightingVS.cso");
 	Renderer::CreatePixelShader(&m_PixelShader, "shader\\vertexLightingPS.cso");
@@ -117,9 +119,10 @@ void Player::Update()
 		m_Rotation.y += 0.05f;
 
 	//ƒWƒƒƒ“ƒv
-	if (Input::GetKeyTrigger('J'))
+	if (Input::GetKeyTrigger('J') && m_MaxJumpCount > m_JumpCount)
 	{
-		m_Velocity.y = 0.35f;
+		m_Velocity.y = 0.4f;
+		m_JumpCount++;
 	}
 
 	m_Velocity.y -= 0.010f;
@@ -191,6 +194,7 @@ void Player::Update()
 	{
 		m_Position.y = groundHeight;
 		m_Velocity.y = 0.0f;
+		m_JumpCount = 0;
 	}
 
 }
