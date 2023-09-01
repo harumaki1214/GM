@@ -4,8 +4,6 @@ class Component
 {
 protected:
 	
-
-
 public:
 	virtual void Init() {}  //âºëzä÷êî
 	virtual void Uninit() {}

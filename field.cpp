@@ -111,7 +111,6 @@ void Field::Update()
 
 void Field::Draw()
 {
-
 	//ここにシェーダー関連の描画準備を追加
 	Renderer::GetDeviceContext()->IASetInputLayout(m_VertexLayout);
 
